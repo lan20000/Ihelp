@@ -1,0 +1,81 @@
+{include file="common/header"}
+<div class="content-wrapper">
+    {include file="member/nav"}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="nav-tabs-custom">
+                    {include file="member/tabs"}
+                    <div class="tab-content">
+                        <div class="page-content">
+                            <div class="panel panel-info">
+
+
+
+                            <form method="post" class="form-horizontal" id="display_form">
+                                <div class="panel panel-default ">
+                                    <div class="table-responsive panel-body">
+                                        <table class="table table-hover">
+                                            <thead class="navbar-inner">
+                                            <tr>
+                                               
+                                                <th>编号</th>
+                                                <th>会员类别</th>
+                                                <th>会员价格</th>
+                                                <th>服务费用</th>
+                                                <th>提现费用</th>
+                                                <th>置顶次数</th>
+                                                <th>发布数量</th> 
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {if !empty($list)}
+                                                {volist name="list" id="item"}
+                                                <tr>
+                                                    <td>{$item['id']}</td>
+                                                    <td>{$item['title']}</td>
+                                                    <td>{$item['vip_money']}</td>
+                                                    <td>{$item['ser_charge']}</td>
+                                                    <td>{$item['car_charge']}</td>
+                                                    <td>{$item['z_count']}</td>
+                                                    <td>{$item['t_count']}</td>
+                                                    <td>
+                                                        <a href="{:U('mebvipupp', 'id=' . $item['id'])}" class="btn btn-sm btn-success">编辑</a>
+                                                    </td>
+                                                </tr>
+                                                {/volist}
+                                                
+                                            {/if}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </form>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('button[name="submit"]').bind('click',function() {
+                                        if (confirm('删除后不可恢复，您确定删除吗？')) {
+                                            $.post(
+                                                window.location.href,
+                                                $('#display_form').serialize(),
+                                                function (ret) {
+                                                    message(ret.message, ret.redirect, ret.type);
+                                                }, 'json'
+                                            );
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+    </section>
+</div>
+{include file="common/footer"}
+

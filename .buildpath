@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="app"/>
+	<buildpathentry kind="src" path="extend/alipay"/>
+	<buildpathentry kind="src" path="extend/alisms"/>
+	<buildpathentry kind="src" path="extend/expand"/>
+	<buildpathentry kind="src" path="extend/jwt"/>
+	<buildpathentry kind="src" path="extend/page"/>
+	<buildpathentry kind="src" path="extend/ueditor"/>
+	<buildpathentry kind="src" path="extend/wxpay"/>
+	<buildpathentry kind="src" path="public"/>
+	<buildpathentry kind="src" path="thinkphp"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>
