@@ -8,6 +8,7 @@
   box-sizing: border-box;
   outline: none;
 }
+.m-tabbar{position: fixed !important;bottom: 0rem;}
 html,
 body {
   height: 100%;

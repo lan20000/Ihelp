@@ -8,6 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>我参与的</title>
     {include file='common/header'}
+	<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
     <style type="text/css">
         .task-list-remain-num span {
             width: 33.33%;
@@ -41,11 +43,16 @@
 </head>
 
 <body data-offset="140" id="htmlBody">
-<div class="site-header header-fixed">
-    <a onclick="history.back()" class="back"></a>
-    <div class="tit-name">我参与的</div>
-</div>
-<div class="main myAttend">
+<header class="m-navbar">
+    <a href="javascript:history.back()" class="navbar-item">
+        <i class="back-ico"></i>
+    </a>
+    <div class="navbar-center">
+        <span class="navbar-title">我参与的</span>
+    </div>
+    <a href="#" class="navbar-item" style="color: #fff;"></a>
+</header>
+<div class=" myAttend">
     <div class="zhuanghu-tab2">
         <ul class="zh-tab-tit">
             <li id="all" class="{$category_type == 'all'?'active':'libg'}" onclick="location.href='/home/mytaskjoin.html'">全部</li>
@@ -80,7 +87,6 @@
         {/if}
     </div>
 </div>
-{include file='common/footer'}
 <script type="text/javascript" src="/static/home/mobile/js/mytaskjoin.js?v=4"></script>
 <script type="text/javascript">
 function check(id){

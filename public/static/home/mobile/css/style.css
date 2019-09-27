@@ -425,7 +425,7 @@ body {
 	height: 35px;
 	line-height: 35px;
 	border-bottom: 1px solid #ebedee;
-	font-size: 1.4rem;
+	font-size: 0.28rem;
 }
 
 .pr-shuxing p span {
@@ -2248,7 +2248,7 @@ zhuanghu-tab li.libg {
 	overflow: hidden;
 	background-color: #fff
 }
-
+.type-txuser>a>img{height:100%;}
 .process {
 	display: inline-block;
 	*display: inline;

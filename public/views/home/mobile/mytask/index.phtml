@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>我发布的</title>
     <link rel="stylesheet" href="/static/home/mobile/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
     {include file='common/header'}
     <style type="text/css">
         .zhuanghu-tab li {
@@ -44,11 +46,17 @@
 </head>
 
 <body>
-<div class="site-header header-fixed">
-    <a onclick="history.back()" class="back"></a>
-    <div class="tit-name">我发布的</div>
-</div>
-<div class="main Myrelease">
+
+<header class="m-navbar">
+    <a href="javascript:history.back()" class="navbar-item">
+        <i class="back-ico"></i>
+    </a>
+    <div class="navbar-center">
+        <span class="navbar-title">我发布的</span>
+    </div>
+    <a href="#" class="navbar-item" style="color: #fff;"></a>
+</header>
+<div class=" Myrelease">
     <div class="zhuanghu-tab">
         <ul class="zh-tab-tit">
             <li id="all" class="{$category_type == 'all'?'active':''}" onclick="location.href='/home/mytask.html'">全部</li>
@@ -94,6 +102,5 @@ var $setting_top_max_hour = '{$setting.top_max_hour}';
 </script>
 <script type="text/javascript" src="/static/home/mobile/js/mytask.js?v=4"></script>
 
-{include file='common/footer'}
 </body>
 </html>

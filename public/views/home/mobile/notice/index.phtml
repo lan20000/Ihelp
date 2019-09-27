@@ -1,91 +1,57 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html>
 
-	<head>
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta charset="UTF-8">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-		<title>公告列表</title>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>公告列表</title>
 		<link rel="shortcut icon" href="clientapp/images/new_images/favicon.ico" />
 		<link href="/static/home/mobile/css/reset_5.css" rel="stylesheet" type="text/css" />
 		<link href="/static/home/mobile/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="/static/home/mobile/css/new_style.css" rel="stylesheet" type="text/css" />
-	</head>
-	<style type="text/css">
-		* {
-			margin: 0px;
-			padding: 0px;
-		}
-		
-		html {
-			font-size: 62.5%;
-		}
-		
-		body {
-			font-family: "微软雅黑", "Microsoft Yahei", "Arial";
-			font-size: 1.4rem;
-			background: #F5F5F5;
-			line-height: 1.5;
-			color: #333;
-			overflow-x: hidden;
-			overflow-y: auto;
-			-webkit-overflow-scrolling: touch;
-		}
-		
-		a {
-			text-decoration: none;
-			-webkit-transition: all 0.3s ease-in-out;
-			transition: all 0.3s ease-in-out;
-			color: #333;
-		}
-		
-		.notice-lists {
-			padding-top: 80px;
-			width: 96%;
-			max-width: 1200px;
-			margin: 0 auto;
-		}
-		
-		.notice-lists ul li {
-			margin-bottom: 10px;
-		}
-		
-		.notice-lists ul li a {
-			display: block;
-			background: #fff;
-			padding: 8px 10px;
-		}
-		
-		.notice-lists ul li a .notice-title {
-			display: inline-block;
-			width: calc(100% - 150px);
-			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-		}
-		
-		.notice-lists ul li a .notice-time {
-			width: 140px;
-			float: right;
-		}
-	</style>
+		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
 
-	<body>
-		<div class="site-header header-fixed">
-			<a onclick="history.back();" class="back"></a>
-			<div class="tit-name">公告</div>
-		</div>
+    <style>
+        body{
+            background: #F5F5F5 !important;
+		}
+		ul{margin-top:0.1rem;}
+		ul>li{    background: #fff;
+    padding: 0.15rem 0.23rem;
+	font-size: 0.24rem;
+    border-bottom:#D9D9D9 solid 1px;
+    border-radius:0.1rem;
+    margin:0rem 0.2rem;
+}
+    </style>
+</head>
+<body>
+
+<header class="m-navbar">
+    <a href="javascript:history.back()" class="navbar-item">
+        <i class="back-ico"></i>
+    </a>
+    <div class="navbar-center">
+        <span class="navbar-title">公告列表</span>
+    </div>
+    <a href="#" class="navbar-item" style="color: #fff;"></a>
+</header>
+<div class="new-gold-detial">
         {if !empty($list)}
 		<div class="notice-lists">
             <ul>
-                {volist name="list" id="item"}
-                <li><a href="/home/notice/detail/id/{$item['id']}.html">{$item['title']}</a></li>
+                {volist name="list" id="item" key="index" }
+                <li>{$index}、<a href="/home/notice/detail/id/{$item['id']}.html">{$item['title']}</a></li>
                 {/volist}
             </ul>
 		</div>
         {/if}
+		</div>
 </body>
 </html>
+
+
+

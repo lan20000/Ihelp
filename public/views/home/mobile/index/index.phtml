@@ -13,6 +13,9 @@
 		<link href="/static/home/mobile/css/style.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/new_page.css?v=2" />
 		<link rel="stylesheet" href="/static/home/mobile/css/swiper.min.css" />
+        
+		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
 		<style type="text/css">
 			.new-main {
 				padding-bottom: 40px;
@@ -25,6 +28,8 @@
                 text-align: center;
                 background: #ffffff;
             }
+            .index_cw_xrfl {padding-left:0.5rem;font-size: 16px;font-weight: bold;color: #fff;}
+            .index_cwhy {margin:0.25rem 0rem;display:flex;align-items: center;width: 100%;height: 1.2rem;background: url('/static/home/mobile/images/index_xrfl.png')no-repeat;background-size: 100%;float: left;border-radius: 0.6rem;}
 		</style>
         <!-- 弹出层 -->
         <link rel="stylesheet" href="/static/plugins/dialog/css/dialog.css" />
@@ -42,7 +47,7 @@
             <input type="hidden" name="order_type" value="0">
             <input type="hidden" name="page" value="1">
             <div class="container">
-                <span class="daily-task">每日任务</span>
+                <!-- <span class="daily-task">每日任务</span> -->
                 <div class="input-group">
                     <input type="text" placeholder="请输入标题关键词" name="keyword">
                     <img class="search-btn" src="/static/home/mobile/picture/search.png">
@@ -53,142 +58,141 @@
             </div>
         </form>
     </header>
-    <div class="add-dowmload">
-        <span>公告</span>
-        <div id="notice" class="swiper-container swiper-container-vertical">
-            <div class="swiper-wrapper">
-                {if !empty($notices)}
-                    {volist name="notices" id="notice"}
-                        <div class="swiper-slide swiper-slide-duplicate">
-                            <a id="slide_href" href="/home/notice/detail/id/{$notice['id']}.html" hid="12">{$notice['title']}</a>
-                        </div>
-                    {/volist}
-                {/if}
-            </div>
-        </div>
-    </div>
-    <div class="dowm-list">
-        <ul class="second-nav">
-            <li data-type="0" class="active">智能排序</li>
-            <li data-type="1">金额数</li>
-            <li data-type="2">积分数</li>
-            <li data-type="3">进度</li>
-            <li data-type="4">等级</li>
-        </ul>
-    </div>
-    <div class="openNotice-back">
-        <div class="openNotice">
-            <span class="notice-ban">今日不再提示</span>
-            <span class="notice-close"><img src="/static/home/mobile/picture/close.png"></span>
-            <div class="noticeDetail">
-
-            </div>
-        </div>
-    </div>
-    {if !empty($banners)}
-    <div class="">
-      <div id="banner" class="swiper-container">
-        <div class="swiper-wrapper">
-          {volist name="banners" id="banner"}
-          <div class="swiper-slide">
-            <a href="{$banner.url}" target="_blank"><img src="{:to_media($banner.thumb)}" border="0" alt="{:to_media($banner.title)}" /></a>
-          </div>
-          {/volist}
-        </div>
-        <!-- Add Pagination -->
-        <div id="banner-pagination" class="swiper-pagination"></div>
-      </div>
-    </div>
-    {/if}
-    {if condition="!empty($categories)"}
-    <div class="new-task-content">
-        <ul>
-            {volist name="categories" id="category"}
-            <li>
-                <a href="/home/task/index/category_id/{$category['id']}.html">
-                    <img src="{:to_media($category['thumb'])}">
-                    <span>{$category['title']}</span>
-                </a>
-            </li>
-            {/volist}
-        </ul>
-    </div>
-    {/if}
-    <div class="index-withdraws" style="padding-top:5px;border-top: solid 1px #E9E9E9;">
-        <div id="withdraw" class="swiper-container swiper-container-vertical">
-            <div class="swiper-wrapper">
-                {if !empty($withdraws)}
-                    {volist name="withdraws" id="withdraw"}
-                        <div class="swiper-slide swiper-slide-duplicate">
-                            <em style="color: #FD2D2E;">{$withdraw.username}</em> 于{$withdraw.create_time|strtotime|date="Y-n-j",###} 提现：<em style="color: #FD2D2E;">{$withdraw.credit2}</em> 元
-                        </div>
-                    {/volist}
-                {/if}
-            </div>
-        </div>
-    </div>
-    <div class="new-site-tit">
-        今天完成所有任务可获得：<span id="expect_gold">{$today_credit2}</span> 元，<span id="expect_silver">{$today_credit1}</span> 积分
-    </div>
-
-    
-    <div class="new-main index-new-main">
-        {if !empty($tasks)}
+    <div class="g-scrollview">
         
-       
-        
-        
-       <div class="new-task-list">
-      
-            <ul>
-                {volist name="tasks" id="task" key="task_index"}
-                <li>
-                    <a href="/home/task/detail/id/{$task['id']}.html">
-                        {if $task_index == 0}
-                            <img class="task-list-hot" src="/static/home/mobile/images/hot.png">
-                        {/if}
-                        <div class="task-list-title-silver">
-                            <div class="task-list-title">{$task['title']}
-                            {if $task['top_end_time']>$task['take_time']}
-                            <span style="margin-left: 4px";><img alt="" src="/static/home/mobile/images/zhiding.png"></span>
-                            {/if}
-                            </div>
-                           
-                            <span class="task-list-gold">
-                                <span>￥</span>
-                                {$task['unit_price']}元
-                            </span>
-                            
-                        </div>
-                        
-                        <span class="task-list-id">{$task['id']}</span>
-                        <span>{$task['join_num']}人已赚</span>
-                        <span class="task-list-remain-num">剩余{$task['ticket_num']-$task['join_num']}份</span>
-                        <div class="task-list-gold-silver"><span class="task-list-prefix">{$task['typename']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="task-list-prefix">{$task['keywords']}</span></div>
-                        <div class="task-list-gold-silver">
-                            <span class="task-list-end-time">结束时间：{$task['end_time']} </span>
-                        </div>
-                    </a>
-                </li>
-                {/volist}
+        <div class="dowm-list">
+            <ul class="second-nav">
+                <li data-type="0" class="active">智能排序</li>
+                <li data-type="1">金额数</li>
+                <li data-type="2">积分数</li>
+                <li data-type="3">进度</li>
+                <li data-type="4">等级</li>
             </ul>
         </div>
-        
-      
-        
-        
-        <div class="paging">
-            <span class="paging-prev">上一页</span>
-            <span class="paging-num-total">
-					<select name="page" class="paging-selct">
-                        {for start="1" end="$pageCount+1"}
-                        <option value="{$i}">{$i}</option>
-                        {/for}
-                    </select>
-				</span>
-            <span class="paging-next" data-page="{$pageCount}">下一页</span>
+        <div class="openNotice-back">
+            <div class="openNotice">
+                <span class="notice-ban">今日不再提示</span>
+                <span class="notice-close"><img src="/static/home/mobile/picture/close.png"></span>
+                <div class="noticeDetail">
+
+                </div>
+            </div>
+        </div>
+        {if !empty($banners)}
+        <div class="" style="margin-top: 14%;">
+        <div id="banner" class="swiper-container">
+            <div class="swiper-wrapper">
+            {volist name="banners" id="banner"}
+            <div class="swiper-slide">
+                <a href="{$banner.url}" target="_blank"><img src="{:to_media($banner.thumb)}" border="0" alt="{:to_media($banner.title)}" /></a>
+            </div>
+            {/volist}
+            </div>
+            <!-- Add Pagination -->
+            <div id="banner-pagination" class="swiper-pagination"></div>
+        </div>
         </div>
         {/if}
+        <div class="add-dowmload">
+            <span>公告</span>
+            <div id="notice" class="swiper-container swiper-container-vertical">
+                <div class="swiper-wrapper">
+                    {if !empty($notices)}
+                        {volist name="notices" id="notice"}
+                            <div class="swiper-slide swiper-slide-duplicate">
+                                <a id="slide_href" href="/home/notice/detail/id/{$notice['id']}.html" hid="12">{$notice['title']}</a>
+                            </div>
+                        {/volist}
+                    {/if}
+                </div>
+            </div>
+        </div>
+        {if condition="!empty($categories)"}
+        <div class="m-grids-4">
+            {volist name="categories" id="category"}
+                <a href="/home/task/index/category_id/{$category['id']}.html" class="grids-item">
+                    <div class="grids-txt"><span>{$category['title']}</span></div>
+                </a>
+            {/volist}
+        </div>
+        {/if}
+        <a class="index_cwhy" href="/home/invite.html">
+			<p class="index_cw_xrfl">邀请好友送现金</p>-
+		</a>
+        
+        <div class="index-withdraws" style="padding-top:5px;border-top: solid 1px #E9E9E9;">
+            <div id="withdraw" class="swiper-container swiper-container-vertical">
+                <div class="swiper-wrapper">
+                    {if !empty($withdraws)}
+                        {volist name="withdraws" id="withdraw"}
+                            <div class="swiper-slide swiper-slide-duplicate">
+                                <em style="color: #FD2D2E;">{$withdraw.username}</em> 于{$withdraw.create_time|strtotime|date="Y-n-j",###} 提现：<em style="color: #FD2D2E;">{$withdraw.credit2}</em> 元
+                            </div>
+                        {/volist}
+                    {/if}
+                </div>
+            </div>
+        </div>
+        <div class="new-site-tit">
+            今天完成所有任务可获得：<span id="expect_gold">{$today_credit2}</span> 元，<span id="expect_silver">{$today_credit1}</span> 积分
+        </div>
+        <div class="new-main index-new-main">
+            {if !empty($tasks)}
+            
+        
+            
+            
+        <div class="new-task-list">
+        
+                <ul>
+                    {volist name="tasks" id="task" key="task_index"}
+                    <li>
+                        <a href="/home/task/detail/id/{$task['id']}.html">
+                            {if $task_index == 0}
+                                <img class="task-list-hot" src="/static/home/mobile/images/hot.png">
+                            {/if}
+                            <div class="task-list-title-silver">
+                                <div class="task-list-title">{$task['title']}
+                                {if $task['top_end_time']>$task['take_time']}
+                                <span style="margin-left: 4px";><img alt="" src="/static/home/mobile/images/zhiding.png"></span>
+                                {/if}
+                                </div>
+                            </div>
+                            <div class="task-list-gold-silver task-list-margin">
+                                <span class="task-list-id">{$task['id']}</span>
+                                <span class="task-list-prefix">{$task['typename']}</span><span class="task-list-prefix">{$task['keywords']}</span>
+                            </div>
+                            <div class="task-list-gold-silver ">
+                                <span class="task-list-gold">￥{$task['unit_price']}元</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span>{$task['join_num']}人已赚</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="task-list-remain-num">剩余{$task['ticket_num']-$task['join_num']}份</span>
+                            </div>
+                            <!-- <div class="task-list-gold-silver">
+                                <span class="task-list-prefix">{$task['typename']}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="task-list-prefix">{$task['keywords']}</span>
+                            </div> -->
+                            <div class="task-list-gold-silver">
+                                <span class="task-list-end-time" style="text-align:right;width:100%;color: #FE4B1C;">结束时间：{$task['end_time']} </span>
+                            </div>
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+            <div class="paging">
+                <span class="paging-prev btn btn-hollow">上一页</span>
+                <span class="paging-num-total">
+                        <select name="page" class="paging-selct">
+                            {for start="1" end="$pageCount+1"}
+                            <option value="{$i}">{$i}</option>
+                            {/for}
+                        </select>
+                </span>
+                <span class="paging-next btn btn-hollow" data-page="{$pageCount}" >下一页</span>
+            </div>
+            {/if}
+        </div>
     </div>
     {include file="common/footer"}
     <script type="text/javascript" src="/static/home/mobile/js/index.js"></script>

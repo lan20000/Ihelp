@@ -1,27 +1,38 @@
-﻿<!DOCTYPE HTML>
+﻿
+<!DOCTYPE HTML>
 <html>
 
-    <head>
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>资金流水</title>
-        {include file='common/header'}
-        <link rel="shortcut icon" href="clientapp/images/new_images/favicon.ico" />
-        <link href="/static/home/mobile/css/reset_5.css" rel="stylesheet" type="text/css" />
-        <link href="/static/home/mobile/css/style.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="/static/home/mobile/css/new_page.css">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>资金流水</title>
+    {include file='common/header'}
+    <link rel="shortcut icon" href="clientapp/images/new_images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
         <link rel="stylesheet" href="/static/home/mobile/css/layui.css">
-    </head>
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
 
-    <body>
-        <header class="new-header">
-            <a onclick="history.back()" class="back">
-                <img src="/static/home/mobile/picture/return.png" />
-            </a>
-            <div class="tit-name">资金流水</div>
-        </header>
-        <div class="new-gold-detial">
+    <style>
+        body{
+            background: #F5F5F5 !important;
+        }
+    </style>
+</head>
+<body>
+
+<header class="m-navbar">
+    <a href="javascript:history.back()" class="navbar-item">
+        <i class="back-ico"></i>
+    </a>
+    <div class="navbar-center">
+        <span class="navbar-title">资金流水</span>
+    </div>
+    <a href="#" class="navbar-item">
+    </a>
+</header>
+<div class="new-gold-detial">
             
             <div class="new-all-profit">
                 您的总收益：<span id="all_profit">{$credit2}</span>元
@@ -34,9 +45,9 @@
                 </div> -->
             </div>
         </div>
-        <script type="text/javascript" src="/static/home/mobile/js/layui/layui.js"></script>
-        <script type="text/javascript">
-        $(function(){
+<script type="text/javascript" src="/static/home/mobile/js/layui/layui.js"></script>
+<script type="text/javascript">
+    $(function(){
                 //流加载
                 layui.use('flow', function(){
                     var flow = layui.flow;
@@ -54,7 +65,9 @@
                     });
                 });
         });
-        </script>
+</script>
 </body>
-
 </html>
+
+
+

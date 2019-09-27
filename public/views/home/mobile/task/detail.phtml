@@ -16,6 +16,8 @@
     <link href="/static/home/mobile/css/new_style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/static/plugins/dialog/css/dialog.css" />
     <link rel="stylesheet" href="/static/home/mobile/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
     <style type="text/css">
         .task-list-remain-num span {
             width: 33.33%;
@@ -56,21 +58,31 @@
             box-sizing: border-box;
             border-radius:4px;
         }
+        .m-navbar{
+            position:fixed;
+            z-index: 999;
+    width: 100%;
+        }
     </style>
     </head>
     <body data-offset="50" id="htmlBody">
-    <header class="site-header header-fixed">
+    <header class="m-navbar">
+            <a href="javascript:history.back()" class="navbar-item"><i class="back-ico"></i></a>
+            <div class="navbar-center"><span class="navbar-title">我的推广</span></div>
+    </header>
+    <!-- <header class="site-header header-fixed">
         <input type="hidden" id="taskId">
         <a onclick="history.back()" class="back"></a>
         <div class="tit-name" id="title_txt">任务详情</div>
         {if $is_can_op == 1}
         <a href="/home/mytaskaudit/index/id/{$item['id']?$item['id']:''}.html" class="sc" id="schide_sh">审核</a>
-        <!-- <a href="#" class="sc" style="right: 110px;" id="schide_sh">审核</a>
+        
+        {/if}
+    </header> -->
+    <!-- <a href="#" class="sc" style="right: 110px;" id="schide_sh">审核</a>
         <a href="#" class="sc" id="schide" style="right:60px;" onclick="TaskDetail.hideTask()">下架</a>
         <a href="#" class="sc" id="sc">隐藏</a>
         <a href="#" class="sc" id="qx">取消隐藏</a> -->
-        {/if}
-    </header>
     <div class="main fixed-padding">
         <div class="pr-info borm cl" style=" margin-bottom:10px;">
             <div class="pic detaill">
@@ -198,7 +210,6 @@
             </ul>
         </div>
 
-        {include file="common/footer"/}
 
         {if $allow_accept}
         {if !is_null($member_task_join_info)}

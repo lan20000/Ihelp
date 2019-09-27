@@ -11,6 +11,8 @@
         <link href="/static/home/mobile/css/new_style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="/static/home/mobile/css/font-awesome.min.css">
         <link rel="stylesheet" href="/static/plugins/dialog/css/dialog.css" />
+		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
+        <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
         <script src="/static/home/mobile/js/jquery-2.0.3.min.js"></script>
         <script src="/static/plugins/dialog/js/dialog.js"></script>
         <script type="text/javascript" src="/static/plugins/clipboard.min.js"></script>
@@ -35,13 +37,19 @@
             padding: 0;
             float: none;
         }
+        .m-navbar{position:fixed; top: 0;z-index: 999; width: 100%;}
+        .inivteFriend.main{margin-top:0.9rem;}
         </style>
     </head>
 
     <body>
-        <header class="site-header header-fixed">
+        <!-- <header class="site-header header-fixed">
             <a onclick="window.history.back();" class="back"></a>
             <div class="tit-name">邀请好友</div>
+        </header> -->
+        <header class="m-navbar">
+            <a href="javascript:history.back()" class="navbar-item"><i class="back-ico"></i></a>
+            <div class="navbar-center"><span class="navbar-title">我的推广</span></div>
         </header>
         <div class="main inivteFriend">
             <div class="member-tab">
@@ -112,7 +120,6 @@
             </div>
             <div id="error" style="display:none;"></div>
         </div>
-        {include file='common/footer'}
         <script>
             window._bd_share_config = {
                 common : {

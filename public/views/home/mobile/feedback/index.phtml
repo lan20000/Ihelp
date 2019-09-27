@@ -1,4 +1,9 @@
-﻿<!DOCTYPE HTML>
+﻿
+
+
+
+
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -6,24 +11,35 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>我的反馈</title>
+	<title>我的反馈</title>
     {include file='common/header'}
-    <link rel="shortcut icon" href="clientapp/images/new_images/favicon.ico"/>
-    <link href="/static/home/mobile/css/reset_5.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/home/mobile/css/style.css" rel="stylesheet" type="text/css"/>
+		<link rel="shortcut icon" href="clientapp/images/new_images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/ydui.css"/>
     <link rel="stylesheet" href="/static/home/mobile/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/home/mobile/css/new_page.css">
     <link rel="stylesheet" href="/static/home/mobile/css/layui.css">
+    <script type="text/javascript" src="/static/home/mobile/js/ydui.flexible.js"></script>
+
+    
+
+    <style>
+        body{
+            background: #F5F5F5 !important;
+        }
+        ul{margin-top:0.2rem;}
+        ul>li{border-bottom: 1px solid #D9D9D9; background: #fff;padding:0.2rem 0.3rem;margin:0.1rem;border-radius:5px}
+        b{text-align:right;display: block;    padding-bottom: 0.1rem;}
+    </style>
 </head>
 <body>
-<header class="new-header">
-    <a onclick="history.back()" class="back">
-        <img src="/static/home/mobile/picture/return.png"/>
+
+<header class="m-navbar">
+    <a href="javascript:history.back()" class="navbar-item">
+        <i class="back-ico"></i>
     </a>
-    <div class="tit-name">我的反馈</div>
-    <span class="dowm-btn publish-task-btn">
-        <a href="/home/feedback/add.html" class="sc" style="color: #fff;">新增</a>
-    </span>
+    <div class="navbar-center">
+        <span class="navbar-title">我的反馈</span>
+    </div>
+    <a href="/home/feedback/add.html" class="navbar-item" >新增</a>
 </header>
 <div class="new-gold-detial">
     <div class="update-box mx_list" id="table">
@@ -34,7 +50,6 @@
         </div> -->
     </div>
 </div>
-{include file='common/footer'}
 <script type="text/javascript" src="/static/home/mobile/js/layui/layui.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -48,7 +63,7 @@ $(function(){
                             $.get('/home/feedback/ajax?page='+page, function(res){
                                 layui.each(res.data.data, function(index, item){
                                     var status = item.is_reply == 1 ? '已回复' : '待回复';
-                                    $("#flow").append('<li onclick="window.location.href=\'/home/feedback/detail/id/'+item.id+'.html\'"><b><time>'+item.create_time+'</time></b><p>'+status+'<span>'+(item.content)+'</span></p>    </li>');
+                                    $("#flow").append('<li onclick="window.location.href=\'/home/feedback/detail/id/'+item.id+'.html\'"><b><span>'+item.create_time+"&nbsp;&nbsp;&nbsp;状态："+status+'</span></b><p><span>'+(item.content)+'</span></p></li>');
                                 });
                                 next(lis.join(''), res.data.length > 0 ? true : false);
                             });
@@ -59,3 +74,6 @@ $(function(){
 </script>
 </body>
 </html>
+
+
+

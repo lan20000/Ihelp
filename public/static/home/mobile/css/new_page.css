@@ -3,6 +3,9 @@ ol,
 li {
 	list-style: none;
 }
+.task-list-margin{
+	margin: 5px auto !important;
+}
 
 html {
 	font-size: 62.5%;
@@ -37,9 +40,10 @@ a {
 }
 
 .new-main {
-	padding-bottom: 80px;
+	/* padding-bottom: 80px; */
 	box-sizing: border-box;
 }
+
 
 .index-new-main .new-task-list {
 	min-height: -webkit-calc(100vh - 592px);
@@ -78,7 +82,7 @@ a {
 
 .new-header .tit-name {
 	text-align: center;
-	font-size: 2rem;
+	font-size: 0.24rem;
 	color: #fff;
 }
 
@@ -187,7 +191,7 @@ a {
 .new-task-content ul li a span {
 	display: block;
 	margin-top: 8px;
-	font-size: 1.3rem;
+	font-size: 0.28rem;
 }
 
 .new-task-content ul li a:hover {
@@ -205,7 +209,7 @@ a {
 .new-site-tit {
 	background: #F5F5F9;
 	color: #999;
-	font-size: 1.8rem;
+	font-size: 0.28rem;
 	height: 40px;
 	display: flex;
 	align-items: center;
@@ -238,9 +242,11 @@ a {
 
 .new-task-list ul li {
 	background: #fff;
-	margin-bottom: 10px;
+	border-radius: 5px;
 	position: relative;
 	height: auto;
+	box-shadow: 0px 1px 10px #ccc;
+	margin: 0.2rem 0.25rem;
 }
 
 .new-task-list ul li a {
@@ -263,6 +269,7 @@ a {
 
 .new-task-list .task-list-title-silver {
 	height: 30px;
+	/* display: block; */
     margin-bottom: 5px;
 }
 
@@ -271,7 +278,7 @@ a {
 	width: 70%;
 	float: left;
 	color: #666;
-	font-size: 1.5rem;
+	font-size: 0.24rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -324,7 +331,8 @@ a {
 }
 
 .new-task-list .task-list-gold {
-	width: 30%;
+	/* width: 30%; */
+	font-weight: bold;
 	float: right;
 	text-align: right;
 }
@@ -335,8 +343,8 @@ a {
 }
 
 .new-task-list .task-list-gold {
-	color: #FF481C;
-	font-size: 2.0rem;
+	color: #098eff;
+	font-size: 0.24rem;
 }
 
 .new-task-list .task-list-silver {
@@ -384,6 +392,9 @@ a {
 }
 
 .paging {
+	display: flex;
+	align-items: center;
+	margin: 0.2rem 0.25rem;
 	padding: 10px 0 30px 0;
 }
 
@@ -427,7 +438,7 @@ a {
 .new-footer ul li a span {
 	display: block;
 	text-align: center;
-	font-size: 1.2rem;
+	font-size: 0.24rem;
 }
 
 .new-footer ul li a span.add-span {
@@ -981,7 +992,7 @@ a {
 }
 
 .add-dowmload {
-	padding: 65px 20px 5px 20px;
+	padding: 5px 20px 5px 20px;
 	border-bottom: solid 1px #E9E9E9;
 	background: #fff;
 	overflow: hidden;
@@ -990,8 +1001,8 @@ a {
 }
 
 .add-dowmload .swiper-container {
-	width: -webkit-calc(100% - 40px);
-	width: calc(100% - 40px);
+	/* width: -webkit-calc(100% - 40px);
+	width: calc(100% - 40px); */
 	box-sizing: border-box;
 	padding-left: 10px;
 	height: 24px;
@@ -1009,8 +1020,8 @@ a {
 .add-dowmload span {
 	border: solid 1px #E0E0E0;
 	color: #aaa;
-	font-size: 1.2rem;
-	width: 36px;
+	font-size: 0.24rem;
+	padding: 0rem 0.2rem;
 	display: block;
 	text-align: center;
 	float: left;
@@ -1585,7 +1596,7 @@ img.uploadImg{
 		width: 50px;
 	}
 	.new-site-tit {
-		font-size: 1.5rem;
+		font-size: 0.28rem;
 	}
 	.new-task-list ul li a {
 		padding: 10px;
@@ -1596,7 +1607,7 @@ img.uploadImg{
 	.new-task-list .task-list-end-time,
 	.new-task-list .task-list-remain-num,
 	.new-task-list .task-list-silver {
-		font-size: 1.3rem;
+		font-size: 0.24rem;
 	}
 	.new-task-list .task-list-end-time {
 		width: 70%;

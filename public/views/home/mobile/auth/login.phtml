@@ -1,128 +1,81 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://dz.tiss.vip/index.php/Home/Public/login.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>登录</title>
 
-	<head>
-		<meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>登录</title>
-		<link href="/static/home/mobile/css/reset_5.css" rel="stylesheet" type="text/css" />
-		<link href="/static/home/mobile/css/style.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="/static/home/mobile/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/static/home/mobile/css/new_style.css" />
-        <script type="text/javascript" src="/static/home/mobile/js/jquery.min.js"></script>
-        <!-- 弹出层 -->
-        <link rel="stylesheet" href="/static/plugins/dialog/css/dialog.css" />
-        <script src="/static/plugins/dialog/lib/zepto.min.js"></script>
-        <script src="/static/plugins/dialog/js/dialog.js"></script>
-        <!-- 弹出层 -->
-        <script type="text/javascript" src="/static/home/mobile/js/global.js"></script>
-	</head>
-	<style type="text/css">
-		    .site-header .tit-name {
-            overflow: initial;
+
+    <script type="text/javascript" src="/static/home/mobile/js/jquery.min.js"></script>
+    <!-- 弹出层 -->
+    <link rel="stylesheet" href="/static/plugins/dialog/css/dialog.css" />
+    <script src="/static/plugins/dialog/lib/zepto.min.js"></script>
+    <script src="/static/plugins/dialog/js/dialog.js"></script>
+    <!-- 弹出层 -->
+    <script type="text/javascript" src="/static/home/mobile/js/global.js"></script>
+    <style>
+        html,body,div,p,form,label,ul,li,dl,dt,dd,ol,img,button,b,em,strong,small,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;list-style:none;font-style:normal;}
+        body{font-family:SimHei,'Helvetica Neue',Arial,'Droid Sans',sans-serif;font-size:14px;color:#333;background:#f2f2f2;}
+        a, a.link{color:#666;text-decoration:none;font-weight:500;}
+        a, a.link:hover{color:#666;}
+        h1,h2,h3,h4,h5,h6{font-weight: normal;}
+        body{
+            background:url(/static/home/mobile/images/bg.png) no-repeat;
+            background-size: 100% auto;
+            /*background: #58afbd;*/
         }
-        html{
-            height:100%;
-        }
-        #tomial {
-            width: 100%;
-            height: 30px;
-            color: #fff;
-            font-size: 14px;
-            background-color: #098eff;
-            pointer-events: initial;
-            border: none;
-            border-radius: 3px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-        #body,#body>.content{
-           width:100%;
-           height:100%;
-        }
-        #body>div>div{
-            width:100%;
-        }
-        .item-box {
-           background: #f4f4f4;border: none;
-    margin: 0 30px 15px 30px;
-    border: 1px solid #fff;
-    border-radius: 25px;
-}
-.item-box input {
-    line-height: 40px;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
-.logo{
-    margin: 10% 0 10% 0;
-}
-	</style>
-	<body class="login-panel" id="body">
-		<!-- <div class="site-header loginTitle">
-			<a href="/home.html" class="back"></a>
-			<div class="tit-name"><img src="{:to_media(!empty($site['logo'])?$site['logo']:'')}" /></div>
-        </div> -->
-        <div class="flex-ali content">
-        <div class="flex-col">
-            <div class="logo">
-                <img class="tit-name" src="{:to_media(!empty($site['logo'])?$site['logo']:'')}" style="display: block;margin: 0 auto;">
+        .login{}
+        .welcome{width:100%;margin:10% 0 10% 0;text-align: center;}
+        .welcome img{}
+        .login-inp{margin:0 30px 15px 30px;border:1px solid #fff;border-radius:25px;}
+        .login-inp label{width:4em;text-align:center;display:inline-block;color:#fff;}
+        .login-inp input{line-height:40px;background-color:transparent;border:none;outline: none;}
+        .login-inp .submit{display:block;background:none;width:100%;text-align:center;line-height:40px;color:#fff;font-size:16px;letter-spacing:5px;}
+        .login-txt{text-align:center;color:#fff;}
+        .login-txt a{color:#fff;padding:0 5px;}
+        #login_form{padding-top:17%;}
+    </style>
+</head>
+
+<body>
+<div class="login">
+    <form class="submit-ajax" id="login_form" >
+        <div class="welcome"><img src="{:to_media(!empty($site['logo'])?$site['logo']:'')}" style="width: 80px;height: 80px;display: block;margin: 0 auto;"></div>
+        <div class="login-form">
+        	
+        	
+            <div class="login-inp" style="background: #f4f4f4;border: none;">
+                <label style="color: #999;">手机</label>
+                <input type="text" name="username" id="username" placeholder="请输入手机号码" autocomplete="off" style="color: #000;">
             </div>
-            <div class="main-cont">
-                <form id="login_form">
-                    <div class="main loginMain">
-                        <!-- <div class="member-tab">
-                            <ul class="m_tab_tit">
-                                <li class="active">
-                                    <a href="/home/auth/login.html">账号登录</a>
-                                </li>
-                                <li>
-                                    <a href="/home/register.html">免费注册</a>
-                                </li>
-                            </ul>
-                        </div> -->
-                        <div class="bk10"></div>
-                        <div class="denglu-box">
-                            <div class="dl-form">
-                                <div class="item-box">
-                                    <input type="text" class="m_txt" placeholder="用户名/手机号" name="username">
-                                </div>
-                                <div class="item-box">
-                                    <input type="password" class="m_txt" placeholder="输入密码" name="password">
-                                </div>
-                                <div class="item-box">
-                                    <input type="text" class="m_txt" placeholder="输入验证码" name="captcha">
-                                    <div class="yzm">
-                                        <img style="width:90px; height:30px;"  src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" alt="captcha" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="member-btn">
-                    <input type="button" class="button2 active js-login" value="登录">&nbsp;
-                    <p>
-                    <a href="/home/register.html">免费注册</a>
-                        <a class="remember-btn" href="findpwd.html">忘记密码</a>
-                    </p>
-                </div>
-                <div class="divider" style="display: none;">
-                    <label>其他方式登录</label>
-                </div>
-                <div class="other-login" style="display: none;">
-                    <div class="other-login-item weixinLogin">
-                        <img src="/static/home/mobile/picture/weixin.png" />
-                        <p>微信登录</p>
-                    </div>
+            <div class="login-inp" style="background: #f4f4f4;border: none;">
+            	<label style="color: #999;">密码</label>
+            	<input type="password" name="password" id="password" placeholder="请输入密码" class="password" autocomplete="off" style="color: #000;">
+            </div>
+            <div class="login-inp" style="background: #f4f4f4;border: none;display: flex; align-items: center;">
+            	<label style="color: #999;">验证码</label>
+            	<input type="text" style="flex:1;" name="captcha" id="captcha" placeholder="输入验证码" class="password" autocomplete="off" style="color: #000;">
+                <div class="yzm" style="display:inline-block;margin-right:5px;">
+                    <img style="width:90px; height:30px;border-radius: 15px;"  src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" alt="captcha" />
                 </div>
             </div>
+            <p style="text-align: right;width: 80%;margin-left: 10%;margin-bottom: 0px;height: 30px;line-height: 30px;margin-top: -5px;margin-bottom: 10px;" >
+                <a style="font-weight: bold;color: #098eff;" class="remember-btn" href="findpwd.html">忘记密码</a>
+            </p>
+            <div class="login-inp" style="border: none;background: #098eff;">
+                <input type="button" class="button2 submit active js-login" value="登录">
+            </div>
+            
         </div>
-        </div>
-        <script type="text/javascript">
+        
+        <a href="/home/register.html">
+        	<p style="width: 150px;height: 60px;line-height: 60px;margin: 66px auto 0; color: #098eff; "> <span style="width: 20px;height: 20px;border: 1px #098eff solid;display: inline-block;margin: 20px 6px 20px 40px;text-align: center;float: left;line-height: 20px;border-radius: 20px;text-align: center;color: #098eff;">→</span> 去注册</p>
+        </a>
+        
+    
+    </form>
+</div>
+<script type="text/javascript">
             $(function () {
                 //确认登陆
                 $('.js-login').click(function () {
@@ -145,4 +98,3 @@
             });
         </script>
 </body>
-</html>
